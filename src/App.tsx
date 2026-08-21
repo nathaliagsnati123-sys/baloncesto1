@@ -356,7 +356,7 @@ export default function App() {
   useEffect(() => {
     // Warm up image cache in background for smooth, instant loading across all sections
     const criticalImages = [
-      "https://i.postimg.cc/3RFXHx91/Chat-GPT-Image-18-de-jul-de-2026-09-55-25.png",
+      "https://i.ibb.co/CKQdPNjt/Chat-GPT-Image-16-de-ago-de-2026-09-35-29.png",
       ...BONUSES.map(b => b.image).filter((img): img is string => Boolean(img)),
       ...TESTIMONIALS.map(t => t.avatarUrl).filter(Boolean),
       ...SCROLL_IMAGES
@@ -467,12 +467,12 @@ export default function App() {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-blue-950 leading-none">
-              +1000 Sesiones de <br className="hidden sm:inline" />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-blue-950 leading-tight">
+              +1.000 EJERCICIOS DE{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-orange-500">
-                Entrenamiento de Baloncesto
-              </span> <br />
-              Listas para Aplicar
+                BALONCESTO
+              </span>{" "}
+              PARA MEJORAR TUS ENTRENAMIENTOS
             </h1>
 
             {/* Subtitle */}
@@ -485,7 +485,7 @@ export default function App() {
             <div className="w-full max-w-3xl mx-auto my-2 rounded-2xl overflow-hidden shadow-lg border border-slate-200/60 bg-white p-1.5">
               <OptimizedImage
                 id="hero-subheadline-image"
-                src="https://i.postimg.cc/3RFXHx91/Chat-GPT-Image-18-de-jul-de-2026-09-55-25.png"
+                src="https://i.ibb.co/CKQdPNjt/Chat-GPT-Image-16-de-ago-de-2026-09-35-29.png"
                 alt="Vista previa de la Biblioteca de Entrenamientos"
                 className="w-full h-auto rounded-xl object-cover"
                 fetchPriority="high"
@@ -588,76 +588,81 @@ export default function App() {
               REGALOS EXCLUSIVOS HOY
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-blue-950 tracking-tight">
-              Recibe hoy estos 8 Bonos Exclusivos (100% Gratis)
+              Recibe hoy estos 7 Bonos Exclusivos (100% Gratis)
             </h2>
             <p className="text-sm text-blue-900/80 leading-relaxed max-w-2xl mx-auto">
-              Solo tienes que adquirir la biblioteca de entrenamientos hoy mismo para recibir como regalo ocho recursos de incalculable valor.
+              Solo tienes que adquirir la biblioteca de entrenamientos hoy mismo para recibir como regalo siete recursos de incalculable valor.
             </p>
           </div>
 
           {/* Bonuses layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {BONUSES.map((bonus) => (
-              <div
-                key={bonus.id}
-                className="bg-slate-50 border border-slate-200/60 rounded-3xl shadow-sm flex flex-col justify-between p-5 relative"
-              >
-                <div>
-                  {bonus.image ? (
-                    <div className="mb-4 w-full flex items-center justify-center">
-                      <OptimizedImage 
-                        src={bonus.image} 
-                        alt={bonus.title} 
-                        className="w-full h-auto object-contain rounded-2xl"
-                        loading={bonus.id === 'bon-4' ? 'eager' : 'lazy'}
-                        fetchPriority={bonus.id === 'bon-4' ? 'high' : 'auto'}
-                        wrapperClassName="w-full h-auto bg-transparent flex items-center justify-center"
-                      />
-                    </div>
-                  ) : (
-                    <div className="bg-white border border-slate-200/60 rounded-2xl flex flex-col items-center justify-center mb-4 p-4 h-[320px] text-center relative overflow-hidden">
-                      <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mb-3">
-                        <BookOpen className="w-6 h-6" />
-                      </div>
-
-                      <span className="text-[8px] font-mono tracking-widest text-blue-700 font-bold uppercase mb-1">
-                        {bonus.tag}
-                      </span>
-                      <span className="text-xs text-blue-900/70 leading-snug font-medium max-w-[150px]">
-                        Manual Digital Pro
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Title */}
-                  <div className="flex gap-2.5">
-                    <span className="w-5 h-5 rounded-full bg-orange-100 border border-orange-300/40 text-orange-700 flex items-center justify-center font-bold text-[10px] flex-shrink-0 mt-0.5">
-                      {bonus.number}
-                    </span>
-                    <h3 className="text-sm font-bold text-blue-950 leading-snug">
-                      {bonus.title}
-                    </h3>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-xs text-blue-900/70 leading-relaxed mt-3 pl-0">
-                    {bonus.description}
-                  </p>
-                </div>
-
-                {/* Price indicators */}
-                <div className="border-t border-slate-200 pt-4 mt-6 flex justify-between items-end">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {BONUSES.map((bonus, index) => {
+              const isLast = index === BONUSES.length - 1;
+              return (
+                <div
+                  key={bonus.id}
+                  className={`bg-slate-50 border border-slate-200/60 rounded-3xl shadow-sm flex flex-col justify-between p-5 relative ${
+                    isLast ? 'sm:col-span-2 sm:max-w-md sm:mx-auto lg:max-w-none lg:col-span-1 lg:col-start-2 w-full' : ''
+                  }`}
+                >
                   <div>
-                    <span className="text-[9px] text-slate-500 block font-bold tracking-wider uppercase">VALOR REAL</span>
-                    <span className="text-xs font-bold text-red-500 line-through">{convertAndFormat(bonus.originalPrice)}</span>
+                    {bonus.image ? (
+                      <div className="mb-4 w-full flex items-center justify-center">
+                        <OptimizedImage 
+                          src={bonus.image} 
+                          alt={bonus.title} 
+                          className="w-full h-auto object-contain rounded-2xl"
+                          loading={bonus.id === 'bon-4' ? 'eager' : 'lazy'}
+                          fetchPriority={bonus.id === 'bon-4' ? 'high' : 'auto'}
+                          wrapperClassName="w-full h-auto bg-transparent flex items-center justify-center"
+                        />
+                      </div>
+                    ) : (
+                      <div className="bg-white border border-slate-200/60 rounded-2xl flex flex-col items-center justify-center mb-4 p-4 h-[320px] text-center relative overflow-hidden">
+                        <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center mb-3">
+                          <BookOpen className="w-6 h-6" />
+                        </div>
+
+                        <span className="text-[8px] font-mono tracking-widest text-blue-700 font-bold uppercase mb-1">
+                          {bonus.tag}
+                        </span>
+                        <span className="text-xs text-blue-900/70 leading-snug font-medium max-w-[150px]">
+                          Manual Digital Pro
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Title */}
+                    <div className="flex gap-2.5">
+                      <span className="w-5 h-5 rounded-full bg-orange-100 border border-orange-300/40 text-orange-700 flex items-center justify-center font-bold text-[10px] flex-shrink-0 mt-0.5">
+                        {bonus.number}
+                      </span>
+                      <h3 className="text-sm font-bold text-blue-950 leading-snug">
+                        {bonus.title}
+                      </h3>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-xs text-blue-900/70 leading-relaxed mt-3 pl-0">
+                      {bonus.description}
+                    </p>
                   </div>
-                  <div className="text-right">
-                    <span className="text-[9px] text-blue-700 block font-bold tracking-wider uppercase">HOY PARA TI</span>
-                    <span className="text-sm font-extrabold text-blue-700 uppercase tracking-tight">¡GRATIS!</span>
+
+                  {/* Price indicators */}
+                  <div className="border-t border-slate-200 pt-4 mt-6 flex justify-between items-end">
+                    <div>
+                      <span className="text-[9px] text-slate-500 block font-bold tracking-wider uppercase">VALOR REAL</span>
+                      <span className="text-xs font-bold text-red-500 line-through">{convertAndFormat(bonus.originalPrice)}</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-[9px] text-blue-700 block font-bold tracking-wider uppercase">HOY PARA TI</span>
+                      <span className="text-sm font-extrabold text-blue-700 uppercase tracking-tight">¡GRATIS!</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
         </div>
@@ -906,7 +911,7 @@ export default function App() {
             <div className="w-full max-w-2xl mx-auto my-2 rounded-2xl overflow-hidden shadow-sm border border-slate-200/50 bg-white p-1">
               <OptimizedImage
                 id="pricing-showcase-image"
-                src="https://i.postimg.cc/3RFXHx91/Chat-GPT-Image-18-de-jul-de-2026-09-55-25.png"
+                src="https://i.ibb.co/CKQdPNjt/Chat-GPT-Image-16-de-ago-de-2026-09-35-29.png"
                 alt="Vista previa de la Biblioteca de Entrenamientos"
                 className="w-full h-auto rounded-xl object-cover"
                 loading="lazy"

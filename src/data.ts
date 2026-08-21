@@ -181,15 +181,6 @@ export const BONUSES: BonusItem[] = [
   {
     id: "bon-7",
     number: 7,
-    title: "Estrategias, Tácticas y Nomenclaturas de Baloncesto",
-    description: "Compendio imprescindible de conceptos tácticos, nomenclatura internacional, lecturas de juego y estrategias avanzadas para pizarras tácticas.",
-    originalPrice: 35,
-    tag: "TÁCTICA Y GLOSARIO",
-    image: "https://i.ibb.co/Cs6w8X0m/Chat-GPT-Image-9-de-ago-de-2026-13-38-31.png"
-  },
-  {
-    id: "bon-8",
-    number: 8,
     title: "Guía para Entrenadores de la Confederación Argentina de Básquetbol",
     description: "Documento técnico y pedagógico de formación de entrenadores de la CABB con metodologías de enseñanza, planificación por edades y filosofía de juego.",
     originalPrice: 49,
