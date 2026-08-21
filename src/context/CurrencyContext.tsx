@@ -100,31 +100,31 @@ const fallbackRates: Record<string, number> = {
 };
 
 export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const originalPrice = 7;
-  const [currencyCode, setCurrencyCode] = useState<string>('USD');
-  const [convertedPrice, setConvertedPrice] = useState<number>(7);
-  const [formattedPrice, setFormattedPrice] = useState<string>('$7');
+  const originalPrice = 7.57;
+  const [currencyCode, setCurrencyCode] = useState<string>('EUR');
+  const [convertedPrice, setConvertedPrice] = useState<number>(7.57);
+  const [formattedPrice, setFormattedPrice] = useState<string>('7,57 €');
   const [rate, setRate] = useState<number>(1);
   const [isConverting, setIsConverting] = useState<boolean>(false);
 
   const convertAndFormat = (val: number): string => {
     try {
-      const formattedNum = val.toLocaleString('en-US', {
+      const formattedNum = val.toLocaleString('es-ES', {
         minimumFractionDigits: val % 1 === 0 ? 0 : 2,
         maximumFractionDigits: 2
       });
-      return `$${formattedNum}`;
+      return `${formattedNum} €`;
     } catch (e) {
-      return `$${val}`;
+      return `${val} €`;
     }
   };
 
   useEffect(() => {
     async function loadCurrency() {
-      setCurrencyCode('USD');
+      setCurrencyCode('EUR');
       setRate(1);
-      setConvertedPrice(7);
-      setFormattedPrice('$7');
+      setConvertedPrice(7.57);
+      setFormattedPrice('7,57 €');
       setIsConverting(false);
     }
 

@@ -307,7 +307,7 @@ export default function App() {
   const [selectedDrillIndex, setSelectedDrillIndex] = useState<number>(0);
   const [isTestimonialsPaused, setIsTestimonialsPaused] = useState<boolean>(false);
   const [isMuestraPaused, setIsMuestraPaused] = useState<boolean>(false);
-  const [checkoutUrl, setCheckoutUrl] = useState<string>("https://pay.hotmart.com/O107175812D?checkoutMode=10");
+  const [checkoutUrl, setCheckoutUrl] = useState<string>("https://pay.hotmart.com/O107175812D?off=dz8snp6h");
   const [selectedZoomImage, setSelectedZoomImage] = useState<string | null>(null);
 
   useEffect(() => {
@@ -344,7 +344,7 @@ export default function App() {
     });
     
     const baseUrl = "https://pay.hotmart.com/O107175812D";
-    const baseParams = new URLSearchParams("checkoutMode=10");
+    const baseParams = new URLSearchParams("off=dz8snp6h");
     
     Object.entries(trackingParams).forEach(([key, val]) => {
       baseParams.set(key, val);
